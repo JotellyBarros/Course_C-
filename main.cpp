@@ -1,22 +1,24 @@
 #include <iostream>
-#include <map>
+#include <queue>
 
 int main()
 {
-    //Using Map whit Iterator
-    //element has a key value
-    std::map <int,int> myMap; // empty map container
+    //Using Queue
+    std::queue<int> somequeue;
 
-    // insert elements
-    myMap.insert(std::pair<int,int>(1,2));
-    myMap.insert(std::pair<int,int>(3,4));
-    myMap.insert(std::pair<int,int>(5,6));
+    somequeue.push(0);
+    somequeue.push(2);
+    somequeue.push(4);
+    somequeue.push(6);
+    somequeue.push(8);
 
-    std::map <int,int>::iterator it = myMap.begin();
+//    std::cout << somequeue.front() << std::endl;
+//    somequeue.pop();
+//    std::cout << somequeue.front() << std::endl;
 
-    //std:advance(it,1);
-    for(myMap.begin(); it != myMap.end();it++){
-        std::cout << it->first <<" :: "<<it->second<<std::endl;
+    while (!somequeue.empty()){
+        std::cout << somequeue.front() << std::endl;
+        somequeue.pop();
     }
 
     return 0;
