@@ -1,16 +1,23 @@
 #include <iostream>
-#include <vector>
+#include <map>
 
 int main()
 {
-    //Using Vector whit Iterator
-    std::vector<int> values={1,2,3,4,5,6,7,8,9,10};
-    std::vector<int>::iterator it;
+    //Using Map whit Iterator
+    //element has a key value
+    std::map <int,int> myMap; // empty map container
 
-    it=values.begin();
-    std::advance(it,2);
-    std::cout << *it << std::endl;
-    std::cout << *next(it,1) << std::endl;
+    // insert elements
+    myMap.insert(std::pair<int,int>(1,2));
+    myMap.insert(std::pair<int,int>(3,4));
+    myMap.insert(std::pair<int,int>(5,6));
+
+    std::map <int,int>::iterator it = myMap.begin();
+
+    //std:advance(it,1);
+    for(myMap.begin(); it != myMap.end();it++){
+        std::cout << it->first <<" :: "<<it->second<<std::endl;
+    }
 
     return 0;
 }
