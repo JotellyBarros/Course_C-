@@ -1,24 +1,22 @@
 #include <iostream>
-#include <deque>
+#include <list>
 
 int main()
 {
-    // Using Deque
-    // Create a deque containing integers
-    std::deque<int> somedeque;
+    // Using list
+    // Create a list containing integers
+    std::list<int> somelist;
 
-    // Add an integer to the beginning of the deque
-    somedeque.push_back(1);
-    somedeque.push_back(2);
-    somedeque.push_back(3);
-    // [1, 2, 3]
-    somedeque.push_front(0);
-    // now [0, 1, 2, 3]
+    // Add an integer to the beginning of the list
+    somelist.push_back(1);
+    somelist.push_back(2);
+    somelist.push_back(3);
 
-    while (!somedeque.empty()){
-        std::cout << somedeque.front() << std::endl;
-        somedeque.pop_front();
-    }
+    std::cout << somelist.front() << std::endl;
+    somelist.pop_front();
+    std::cout << somelist.front() << std::endl;
+    somelist.pop_front();
+    std::cout << somelist.front() << std::endl;
 
     return 0;
 }
