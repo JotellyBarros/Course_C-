@@ -1,24 +1,23 @@
 #include <iostream>
-#include <queue>
+#include <deque>
 
 int main()
 {
-    //Using Queue
-    std::queue<int> somequeue;
+    // Using Deque
+    // Create a deque containing integers
+    std::deque<int> somedeque;
 
-    somequeue.push(0);
-    somequeue.push(2);
-    somequeue.push(4);
-    somequeue.push(6);
-    somequeue.push(8);
+    // Add an integer to the beginning of the deque
+    somedeque.push_back(1);
+    somedeque.push_back(2);
+    somedeque.push_back(3);
+    // [1, 2, 3]
+    somedeque.push_front(0);
+    // now [0, 1, 2, 3]
 
-//    std::cout << somequeue.front() << std::endl;
-//    somequeue.pop();
-//    std::cout << somequeue.front() << std::endl;
-
-    while (!somequeue.empty()){
-        std::cout << somequeue.front() << std::endl;
-        somequeue.pop();
+    while (!somedeque.empty()){
+        std::cout << somedeque.front() << std::endl;
+        somedeque.pop_front();
     }
 
     return 0;
