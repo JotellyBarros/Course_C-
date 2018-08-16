@@ -1,27 +1,35 @@
 #include <iostream>
-#include <algorithm> // to using find
-#include <list>
+#include <set> // to using set
 
 int main()
 {
-    // Using list whit find
-    // Create a list containing integers
-    std::list<int> someList;
+    // Using set whit iterator
+    // Create a set containing integers
+    std::set<int> setOfNumbers;
 
-    int numberFound = 4;
+    // Inserting four elements
+    setOfNumbers.insert(0);
+    setOfNumbers.insert(1);
+    setOfNumbers.insert(2);
+    setOfNumbers.insert(3);
 
-    // Add an integer to the beginning of the list
-    someList.push_back(1);
-    someList.push_back(2);
-    someList.push_back(3);
+    // Clear the set
+    // setOfNumbers.clear();
 
-    // Using find
-    auto findNow = std::find(someList.begin(), someList.end(), numberFound);
+    // Erase a element of set
+    // setOfNumbers.erase(2);
 
-    if (findNow != std::end(someList)) {
-        std::cout << "Number found" << std::endl;
-    } else {
-        std::cout << "Number not found!" << std::endl;
+    // Printing of size set
+    std::cout << "Set Size = " << setOfNumbers.size() << " Elements." << std::endl;
+
+    // Printig all elements of set using iterator
+    std::set<int>::iterator it = setOfNumbers.begin();
+
+    // std::advance(it,1);
+    // std::cout << *it << std::endl;
+
+    for (setOfNumbers.begin(); it != setOfNumbers.end(); ++it) {
+        std::cout << *it << std::endl;
     }
 
     return 0;
