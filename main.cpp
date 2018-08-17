@@ -1,47 +1,29 @@
+// C++ program to demostrate Using struct
 #include <iostream>
-#include <string>
+
+struct DateStruct
+{
+    int year;
+    int month;
+    int day;
+
+    // Function for printing the values
+    void print(std::string nameDay){
+        std::cout << nameDay << " is: " << year << "/" << month << "/" << day << std::endl;
+    }
+};
 
 int main()
 {
-    // Using string
-    // Declaring of variables
-    std::string str_nome;
-    std::string str_sobrenome;
-    std::string str_nome_sobrenome;
+    // Initialization of struct
+    DateStruct yesteday {2018,8,16};
+    DateStruct today {2018,8,17};
+    DateStruct tomorrow {2018,8,18};
 
-    // Coping a new value
-    str_nome = "Jotelly";
-    str_sobrenome = "Barros";
-
-    // Concatenates str_nome whit str_sobrenome
-    str_nome_sobrenome = str_nome + " " + str_sobrenome;
-
-    // Printing the str_nome_sobrenome
-    std::cout << str_nome_sobrenome << std::endl;
-
-    // Size total of str_nome_sobrenome
-    std::cout << str_nome_sobrenome.size() << " Carácter" << std::endl;
-
-    // Return the position of value passed
-    size_t found = str_nome_sobrenome.find("o");
-    //std::cout << found << std::endl;
-
-    // Return the first position of value passed
-    std::string search = "lly";
-    found = str_nome_sobrenome.find(search);
-
-    // Use of replacing for change the variable 'o'
-    str_nome_sobrenome.replace(1,1,"ó"); //size_t pos, size_t len, const string
-    std::cout << str_nome_sobrenome << std::endl;
-
-    // Use of replacing for change the word 'Barros' -> 'Oliveira'
-    str_nome_sobrenome.replace(9,6,"Oliveira"); //size_t pos, size_t len, const string
-    std::cout << str_nome_sobrenome << std::endl;
-
-//    search 3; found 4;
-//    for (found; found-search.size() <= search.size(); ++found) {
-//        std::cout << str_nome_sobrenome[found] << std::endl;
-//    }
+    //today.day = 5; // use member selection operator to select a member of the struct
+    yesteday.print("Yesterday");
+    today.print("Today");
+    tomorrow.print("Tomorrow");
 
     return 0;
 }
