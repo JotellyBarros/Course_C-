@@ -1,46 +1,12 @@
-// C++ program to demostrate Class POO using constructor
 #include <iostream>
-#include <typeinfo>
+#include "declarations.h"
 
-class IntPair
-{
-public:
-    int value_1;
-    int value_2;
+int main() {
 
-    // Default Constructor
-    IntPair()
-    {
-        value_1 = 0;
-        value_2 = 0;
-        std::cout << "Default Constructor called" << std::endl;
-    }
-
-    void set_pair(int v_p1, int v_p2)
-    {
-        value_1 = v_p1;
-        value_2 = v_p2;
-    }
-
-    void print()
-    {
-        std::cout << "Values: [" << value_1 << " : " <<value_2 << "]" << std::endl;
-    }
-};
-
-
-int main()
-{
-
-    IntPair p1, p2;
-    // whit constructor
-    p1.print();
-
-    p1.set_pair(1,2);
-    p2.set_pair(3,4);
-
-    p1.print();
-    p2.print();
+    MyAccount account_01("Jótelly Barros", 3338262566);
+    account_01.setMy_sex("Male");
+    std::cout << "\ngetMy_idade: " << account_01.getMy_idade() << "\n" << std::endl;
+    account_01.PrintState();
 
     return 0;
 }
