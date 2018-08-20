@@ -97,19 +97,50 @@ MyAccount::MyAccount(std::string my_name, size_t my_cpf) {
 }
 
 void MyAccount::OpenAccount(){
-    bank_status_ = true;
+    if (bank_status_ == true) {
+        std::cout << "Client: " << my_name_ << ", Not is possible open account, already open." << std::endl;
+    } else {
+        bank_status_ = true;
+    }
 }
 
 void MyAccount::CloseAccount(){
-    bank_status_ = false;
+    if (bank_status_ == false) {
+        std::cout << "Client: " << my_name_ << ", Not is possible closed account, already closed." << std::endl;
+    } else {
+        bank_status_ = false;
+    }
 }
 
 void MyAccount::DepositAccount(double value){
-    bank_balance_ += value;
+    if (bank_status_ == false) {
+        std::cout << "Client: " << my_name_ << ", Not is possible deposit in the account, Account closed." << std::endl;
+    } else {
+        bank_balance_ += value;
+    }
 }
 
 void MyAccount::CashOutAccount(double value){
-    bank_balance_ -= value;
+    if (bank_status_ == false) {
+        std::cout << "Client: " << my_name_ << ", Not is possible cash out in the account, Account closed." << std::endl;
+    } else {
+        bank_balance_ -= value;
+    }
+}
+
+//Static Method
+void MyAccount::TransferCashAccount(double cash, MyAccount& value1, MyAccount& value2)
+{
+    if (value1.getBank_balance() >= cash) {
+        value1.CashOutAccount(cash);
+        value2.DepositAccount(cash);
+        std::cout << "Transfering Cash... U$ " << cash << std::endl;
+        std::cout << "Agency: " << value1.getBank_num_agency() << " To " << value2.getBank_num_agency() << std::endl;
+        std::cout << "Account: " << value1.getBank_num_account() << " To " << value2.getBank_num_account() << std::endl;
+        std::cout << "Client Name: " << value1.getMy_name() << " To " << value2.getMy_name() << std::endl;
+    } else {
+        std::cout << "Not is possible Transfering Cash in the account, don't have Cash: " << value1.getMy_name() << std::endl;
+    }
 }
 
 void MyAccount::PrintState()

@@ -24,11 +24,14 @@ public:
     // Default Constructor
     MyAccount(std::string my_name_, size_t my_cpf_);
 
+    static void TransferCashAccount(double cash, MyAccount& value1, MyAccount& value2);
+
     void PrintState();
     void OpenAccount();
     void CloseAccount();
     void CashOutAccount(double value);
     void DepositAccount(double value);
+    //void TransferCashAccount (double value, double value1);
 
     //Getts and Setters
     std::string getMy_name() const;
