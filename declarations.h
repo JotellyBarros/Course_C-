@@ -5,26 +5,32 @@ class MyAccount
 {
 private:
     // Data of client
-    std::string my_name;
-    std::string my_sexo;
-    int my_idade;
-    size_t my_cpf;
+    std::string my_name_;
+    std::string my_sexo_;
+    int my_idade_;
+    size_t my_cpf_;
 
     // Data of bank
-    std::string bank_name;
-    int bank_num_account;
-    int bank_num_agency;
+    std::string bank_name_;
+    int bank_num_account_;
+    int bank_num_agency_;
+    bool bank_status_;
 
     // Data of bank values
-    double bank_balance;
+    double bank_balance_;
 
 public:
 
     // Default Constructor
-    MyAccount(std::string my_name, size_t my_cpf);
+    MyAccount(std::string my_name_, size_t my_cpf_);
 
     void PrintState();
+    void OpenAccount();
+    void CloseAccount();
+    void CashOutAccount(double value);
+    void DepositAccount(double value);
 
+    //Getts and Setters
     std::string getMy_name() const;
     void setMy_name(const std::string &value);
 
