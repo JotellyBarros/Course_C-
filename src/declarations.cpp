@@ -9,6 +9,7 @@ std::string MyAccount::getMy_sexo() const
 void MyAccount::setMy_sex(const std::string &value)
 {
     my_sexo_ = value;
+//    value.back();
 }
 
 int MyAccount::getMy_idade() const
@@ -98,7 +99,7 @@ MyAccount::MyAccount(std::string my_name, size_t my_cpf) {
 
 void MyAccount::OpenAccount(){
     if (bank_status_ == true) {
-        std::cout << "Client: " << my_name_ << ", Not is possible open account, already open." << std::endl;
+        std::cout << "Client: " << my_name_ << ", is not possible open account, already open." << std::endl;
     } else {
         bank_status_ = true;
     }
@@ -106,24 +107,32 @@ void MyAccount::OpenAccount(){
 
 void MyAccount::CloseAccount(){
     if (bank_status_ == false) {
-        std::cout << "Client: " << my_name_ << ", Not is possible closed account, already closed." << std::endl;
+        std::cout << "Client: " << my_name_ << ", is not possible closed account, already closed." << std::endl;
     } else {
         bank_status_ = false;
     }
 }
 
-void MyAccount::DepositAccount(double value){
-    if (bank_status_ == false) {
-        std::cout << "Client: " << my_name_ << ", Not is possible deposit in the account, Account closed." << std::endl;
-    } else {
+void MyAccount::DepositAccount(double value)
+{
+    if (bank_status_ == false)
+    {
+        std::cout << "Client: " << my_name_ << ", is not possible deposit in the account, Account closed." << std::endl;
+    }
+    else
+    {
         bank_balance_ += value;
     }
 }
 
-void MyAccount::CashOutAccount(double value){
-    if (bank_status_ == false) {
-        std::cout << "Client: " << my_name_ << ", Not is possible cash out in the account, Account closed." << std::endl;
-    } else {
+void MyAccount::CashOutAccount(double value)
+{
+    if (bank_status_ == false)
+    {
+        std::cout << "Client: " << my_name_ << ", is not possible cash out in the account, Account closed." << std::endl;
+    }
+    else
+    {
         bank_balance_ -= value;
     }
 }

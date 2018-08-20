@@ -1,5 +1,5 @@
-#ifndef DECLARATIONS_H
-#define DECLARATIONS_H
+#ifndef COURSE_C_INCLUDE_DECLARATIONS_H
+#define COURSE_C_INCLUDE_DECLARATIONS_H
 
 class MyAccount
 {
@@ -31,7 +31,6 @@ public:
     void CloseAccount();
     void CashOutAccount(double value);
     void DepositAccount(double value);
-    //void TransferCashAccount (double value, double value1);
 
     //Getts and Setters
     std::string getMy_name() const;
@@ -59,4 +58,4 @@ public:
     void setBank_balance(double value);
 };
 
-#endif // DECLARATIONS_H
+#endif // COURSE_C_INCLUDE_DECLARATIONS_H
