@@ -50,37 +50,16 @@ int main(int argc, char *argv[])
 
     //    //std::cout << __LINE__ << std::endl; //Print a line of IDE
 
-    int value = 2;
-    try {
-        if (value != 5)
-        {
-            if (value == 1)
-            {
-                throw 1;
-            }
-            else if(value == 2)
-            {
-                throw 2;
-            }
-            else if (value == 3)
-            {
-                throw 3;
-            }
+    // Dynamic memory allocation
+    int *value = new int();
+    *value = 1;
 
-            if (value == 1) throw 1;
-            else if (value == 2) throw 2;
-            else if (value == 3) throw 3;
-        }
-        else
-        {
-            return 0;
-        }
-    }
-    catch (int erro)
-    {
-        std::cout << "\nErro: " << erro << " Erro in the line: " << (__LINE__ -10) << std::endl;
-        std::cout << ("Exceção tratada\n");
-    }
+    std::cout << ((*value == 1) ? "exist..." : "don't exist...") << std::endl;
+
+    // Delete value in the memory
+    delete value;
+
+    std::cout << ((*value == 1) ? "exist..." : "don't exist...") << std::endl;
 
     return 0;
 }
