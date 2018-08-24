@@ -1,31 +1,52 @@
-#include <iostream>
 #include "declarations.h"
+#include <iostream>
 
 int main(int argc, char *argv[])
 {
-    MyAccount account_01("Jótelly Barros", 3338262566);
-    account_01.setMy_sex("Male");
-    account_01.setMy_idade(31);
-    account_01.setBank_name("Bradesco");
-    account_01.setBank_num_account(2148835);
-    account_01.setBank_num_agency(7653);
-    account_01.OpenAccount();
-    account_01.DepositAccount(30);
+    //    MyAccount *account = new MyAccountCurrent("Jotelly Barros", 3335845266);
+    //    account->PrintState();
 
-    MyAccount account_02("Naila Santos", 22012399823);
-    account_02.setMy_sex("Female");
-    account_02.setMy_idade(27);
-    account_02.setBank_name("Bradesco");
-    account_02.setBank_num_account(7365282);
-    account_02.setBank_num_agency(2341);
-    account_02.OpenAccount();
-    account_02.DepositAccount(0);
+    //    account = new MyAccountSavings("Jotelly Barros", 3335845266);
+    //    account->PrintState();
 
+    //---------------------------------------------------------------------------
+    MyAccountCurrent accountCurrent_01("Jotelly Barros", 3335845266);
+
+    accountCurrent_01.setSexo("Male");
+    accountCurrent_01.setIdade(31);
+    accountCurrent_01.setBank_name("Bradesco");
+    accountCurrent_01.setNum_account(2148835);
+    accountCurrent_01.setNum_agency(7653);
+
+    //Actions
+    accountCurrent_01.OpenAccount();
+    accountCurrent_01.DepositAccount(250);
+
+    //Prints
+    accountCurrent_01.PrintState();
+
+    //---------------------------------------------------------------------------
+    MyAccountSavings accountSavings_01("Naila Barros", 2135854684);
+    accountSavings_01.setSexo("Female");
+    accountSavings_01.setIdade(27);
+    accountSavings_01.setBank_name("Bradesco");
+    accountSavings_01.setNum_account(8457839);
+    accountSavings_01.setNum_agency(8559);
+
+    //Actions
+    accountSavings_01.OpenAccount();
+    accountSavings_01.DepositAccount(150);
+
+    //Prints
+    accountSavings_01.PrintState();
+
+    //---------------------------------------------------------------------------
     //TransferCashAccount account_01 to account_02
-    MyAccount::TransferCashAccount(30 ,account_01, account_02);
+    MyAccount::TransferCashAccount(60 ,accountCurrent_01, accountSavings_01);
 
-    account_01.PrintState();
-    account_02.PrintState();
+    std::cout << std::endl << "Balance: U$ " << accountCurrent_01.bank_balance() << " <- " << accountCurrent_01.name() << std::endl;
+    std::cout << "Balance: U$ " << accountSavings_01.bank_balance() << " <- " << accountSavings_01.name() << std::endl;
+    //---------------------------------------------------------------------------
 
     return 0;
 }

@@ -1,61 +1,46 @@
 #ifndef COURSE_C_INCLUDE_DECLARATIONS_H
 #define COURSE_C_INCLUDE_DECLARATIONS_H
+#include "mybank.h"
+#include "myaccount.h"
 
-class MyAccount
+class MyAccountSavings:public MyAccount
 {
-private:
-    // Data of client
-    std::string my_name_;
-    std::string my_sexo_;
-    int my_idade_;
-    size_t my_cpf_;
-
-    // Data of bank
-    std::string bank_name_;
-    int bank_num_account_;
-    int bank_num_agency_;
-    bool bank_status_;
-
-    // Data of bank values
-    double bank_balance_;
-
 public:
+    MyAccountSavings(std::string name_, size_t cpf_);
+    void PrintState()
+    {
+        PrintGenericInformations(); // Return basic informations the user
 
-    // Default Constructor
-    MyAccount(std::string my_name_, size_t my_cpf_);
+        std::cout << "\nBank Name Bank: " << bank_name() << std::endl;
 
-    static void TransferCashAccount(double cash, MyAccount& value1, MyAccount& value2);
+        std::string returnStatus = (bank_status() == true) ? "Account Enabled" : "Account Disabled";
+        std::cout << "Bank Status: " << returnStatus << std::endl;
+        std::cout << "Bank Number Account: " << num_account() << std::endl;
+        std::cout << "Bank Number Agency: " << num_agency() << std::endl;
 
-    void PrintState();
-    void OpenAccount();
-    void CloseAccount();
-    void CashOutAccount(double value);
-    void DepositAccount(double value);
+        std::cout << "\nAccount Bank Balance: U$ " << bank_balance() << std::endl;
+        std::cout << "---------------------------------------------" << std::endl << std::endl;
+    }
+};
 
-    //Getts and Setters
-    std::string getMy_name() const;
-    void setMy_name(const std::string &value);
+class MyAccountCurrent:public MyAccount
+{
+public:
+    MyAccountCurrent(std::string name_, size_t cpf_);
+    void PrintState()
+    {
+        PrintGenericInformations(); // Return basic informations the user
 
-    std::string getMy_sexo() const;
-    void setMy_sex(const std::string &value);
+        std::cout << "\nBank Name Bank: " << bank_name() << std::endl;
 
-    int getMy_idade() const;
-    void setMy_idade(int value);
+        std::string returnStatus = (bank_status() == true) ? "Account Enabled" : "Account Disabled";
+        std::cout << "Bank Status: " << returnStatus << std::endl;
+        std::cout << "Bank Number Account: " << num_account() << std::endl;
+        std::cout << "Bank Number Agency: " << num_agency() << std::endl;
 
-    size_t getMy_cpf() const;
-    void setMy_cpf(const size_t &value);
-
-    std::string getBank_name() const;
-    void setBank_name(const std::string &value);
-
-    int getBank_num_account() const;
-    void setBank_num_account(int value);
-
-    int getBank_num_agency() const;
-    void setBank_num_agency(int value);
-
-    double getBank_balance() const;
-    void setBank_balance(double value);
+        std::cout << "\nAccount Bank Balance: U$ " << bank_balance() << std::endl;
+        std::cout << "---------------------------------------------" << std::endl;
+    }
 };
 
 #endif // COURSE_C_INCLUDE_DECLARATIONS_H
