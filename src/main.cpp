@@ -1,65 +1,38 @@
-#include "declarations.h"
-#include <iostream>
+#include<iostream>
+using namespace std;
 
-int main(int argc, char *argv[])
+class Complex {
+private:
+    int real, imag;
+public:
+    Complex(int r = 0, int i =0)
+    {
+        real = r;
+        imag = i;
+    }
+
+    // This is automatically called when '+' is used with
+    // between two Complex objects
+    Complex operator + (Complex const &obj)
+    {
+         Complex res;
+         res.real = real + obj.real;
+         res.imag = imag + obj.imag;
+         cout << real << "+" << obj.real << " | " << imag << "+" << obj.imag << endl;
+
+         return res;
+    }
+
+    void print(){cout << real << " , " << imag << endl;}
+};
+
+int main()
 {
-    //    //    MyAccount *account = new MyAccountCurrent("Jotelly Barros", 3335845266);
-    //    //    account->PrintState();
+    Complex c1(10, 5);
+    Complex c2(2, 2);
+    Complex c3(1, 3);
+    Complex c4(3, 4);
 
-    //    //    account = new MyAccountSavings("Jotelly Barros", 3335845266);
-    //    //    account->PrintState();
-
-    //    //---------------------------------------------------------------------------
-    //    MyAccountCurrent accountCurrent_01("Jotelly Barros", 3335845266);
-
-    //    accountCurrent_01.setSexo("Male");
-    //    accountCurrent_01.setIdade(31);
-    //    accountCurrent_01.setBank_name("Bradesco");
-    //    accountCurrent_01.setNum_account(2148835);
-    //    accountCurrent_01.setNum_agency(7653);
-
-    //    //Actions
-    //    accountCurrent_01.OpenAccount();
-    //    accountCurrent_01.DepositAccount(250);
-
-    //    //Prints
-    //    accountCurrent_01.PrintState();
-
-    //    //---------------------------------------------------------------------------
-    //    MyAccountSavings accountSavings_01("Naila Barros", 2135854684);
-    //    accountSavings_01.setSexo("Female");
-    //    accountSavings_01.setIdade(27);
-    //    accountSavings_01.setBank_name("Bradesco");
-    //    accountSavings_01.setNum_account(8457839);
-    //    accountSavings_01.setNum_agency(8559);
-
-    //    //Actions
-    //    accountSavings_01.OpenAccount();
-    //    accountSavings_01.DepositAccount(150);
-
-    //    //Prints
-    //    accountSavings_01.PrintState();
-
-    //    //---------------------------------------------------------------------------
-    //    //TransferCashAccount account_01 to account_02
-    //    MyAccount::TransferCashAccount(60 ,accountCurrent_01, accountSavings_01);
-
-    //    std::cout << std::endl << "Balance: U$ " << accountCurrent_01.bank_balance() << " <- " << accountCurrent_01.name() << std::endl;
-    //    std::cout << "Balance: U$ " << accountSavings_01.bank_balance() << " <- " << accountSavings_01.name() << std::endl;
-    //    //---------------------------------------------------------------------------
-
-    //    //std::cout << __LINE__ << std::endl; //Print a line of IDE
-
-    // Dynamic memory allocation
-    int *value = new int();
-    *value = 1;
-
-    std::cout << ((*value == 1) ? "exist..." : "don't exist...") << std::endl;
-
-    // Delete value in the memory
-    delete value;
-
-    std::cout << ((*value == 1) ? "exist..." : "don't exist...") << std::endl;
-
-    return 0;
+    Complex c5 = c1 + c2 + c3 + c4; // An example call to "operator+"
+    c5.print();
 }
